@@ -1,0 +1,20 @@
+name: AutoStone
+main: com.github.shadark.AutoStone.AutoStone
+version: 0.1
+authors: Shadark
+website: https://github.com/Shadark
+
+commands:
+   autostone:
+      description: Activates AutoStone plugin.
+      permission: autostone.basic
+      usage: /<command>
+      
+permissions:
+    autostone.*:
+        description: Gives access to all AutoStone plugin commands
+        children:
+            autostone.basic: true
+    autostone.basic:
+        description: Gives access to AutoStone plugin
+        default: true
