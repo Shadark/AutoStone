@@ -1,20 +1,48 @@
 name: AutoStone
 main: com.github.shadark.AutoStone.AutoStone
-version: 0.1
-authors: Shadark
+version: 1.0
+author: Shadark
 website: https://github.com/Shadark
 
 commands:
    autostone:
-      description: Activates AutoStone plugin.
-      permission: autostone.basic
-      usage: /<command>
+      description: Activates AutoStone plugin, free or using coal
+      aliases: [astone]
+      usage: |
+            /<command> - Shows this help menu
+            /<command> [Coal|Free] - Activates/Deactivates AutoStone using coal or free
+            /<command> Rates - Show AutoStone rates when using coal
+            /<command> Reload - Reloads AutoStone configuration from disk
+            /<command> Set [CoalUsed|StoneGiven] <Amount> - Changes AutoStone configuration to <Amount>
+            /<command> Save - Saves AutoStone configuration to disk 
       
 permissions:
-    autostone.*:
-        description: Gives access to all AutoStone plugin commands
-        children:
-            autostone.basic: true
-    autostone.basic:
-        description: Gives access to AutoStone plugin
-        default: true
+   autostone.*:
+     description: Gives access to all AutoStone commands
+     default: false
+     children:
+       autostone.admin: true
+       autostone.rates: true
+       autostone.place: true
+       autostone.place.free: true
+       autostone.place.coal: true
+   autostone.admin:
+     description: Allows you to modify AutoStone settings
+     default: op
+   autostone.rates:
+     description: Allows you to see AutoStone rates
+     default: true
+   autostone.place.*:
+     description: Allows you to place AutoStone blocks, free or using coal
+     default: false
+     children:
+       autostone.place.free: true
+       autostone.place.coal: true
+   autostone.place.free:
+     description: Allows you to place free AutoStone blocks
+     default: false
+     children:
+       autostone.place.coal: true
+   autostone.place.coal:
+     description: Allows you to place AutoStone blocks using coal
+     default: true

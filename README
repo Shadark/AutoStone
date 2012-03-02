@@ -1,1 +1,3 @@
-Plugin for Bukkit. When you place a Cobblestone block it turns automatically to Stone.
+Plugin for Bukkit. This plugin will make easier the task of smelting cobblestone blocks to make stone blocks, because the plugin will take coal from your inventory and grant you some uses for turning automatically cobblestone to stone.
+
+It's fully configurable, you can configure with a Permissions plugin who can use free AutoStone or AutoStone using coal, and how many uses they will receive for the amount of coal you set.
