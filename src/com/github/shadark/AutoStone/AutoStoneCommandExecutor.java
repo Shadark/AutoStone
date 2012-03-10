@@ -23,7 +23,6 @@ public class AutoStoneCommandExecutor implements CommandExecutor{
 		return true;  
 	}
 
-	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		Player player = null;
 		if (sender instanceof Player) {
