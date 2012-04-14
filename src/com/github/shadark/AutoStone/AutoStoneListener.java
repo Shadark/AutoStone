@@ -24,6 +24,13 @@ public class AutoStoneListener implements Listener {
 		Bukkit.getServer().getPluginManager().registerEvents(this, plugin);
 	}
 	
+	public int getCoalCount (Player player) {
+		if (coalCount.containsKey(player))
+			return coalCount.get(player);
+		else
+			return 0;
+	}
+	
 	@SuppressWarnings("deprecation")
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void onPlaceCobblestone(final BlockPlaceEvent event) {
@@ -58,11 +65,9 @@ public class AutoStoneListener implements Listener {
 				}
 				coalCount.put(player, (coalCount.get(player) - 1));
 				block.setType(Material.STONE);
-				player.sendMessage(ChatColor.RED + " stone use(s) remaining");
+				player.sendMessage(ChatColor.RED + "" + coalCount.get(player) + " stone use(s) remaining");
 			}
 		}
 	}
 	
 }
-
-//TODO

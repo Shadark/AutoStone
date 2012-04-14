@@ -58,6 +58,13 @@ public class AutoStoneCommandExecutor implements CommandExecutor{
 							sender.sendMessage(ChatColor.RED + "" + plugin.getCoalUsed() + ChatColor.WHITE + " unit(s) of coal will grant you " + ChatColor.RED + plugin.getStoneGiven() + ChatColor.WHITE + " unit(s) of stone.");
 						else
 							player.sendMessage(ChatColor.RED + "You don't have permission to use this command!");
+					} else if (argument.compareTo("uses") == 0) {
+						if (player.hasPermission("autostone.coal") && enabled && plugin.getTypePlugin(player) == 1)
+							sender.sendMessage(ChatColor.GRAY + "You have " + ChatColor.RED + plugin.getListener().getCoalCount(player) + ChatColor.GRAY + " AutoStone uses remaining.");
+						else if (player.hasPermission("autostone.coal"))
+							sender.sendMessage(ChatColor.RED + "You don't have AutoStone with coal activated or you have AutoStone free activated!");
+						else
+							player.sendMessage(ChatColor.RED + "You don't have permission to use this command!");
 					} else if (argument.compareTo("reload") == 0) {
 						if (player.hasPermission("autostone.rates")) {
 							plugin.setCoalUsed(plugin.getConfig().getInt("CoalUsed"));

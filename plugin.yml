@@ -1,6 +1,6 @@
 name: AutoStone
 main: com.github.shadark.AutoStone.AutoStone
-version: 1.1
+version: 1.2
 author: Shadark
 website: https://github.com/Shadark
 
@@ -12,6 +12,7 @@ commands:
             /<command> - Shows this help menu
             /<command> [Coal|Free] - Activates/Deactivates AutoStone using coal or free
             /<command> Rates - Show AutoStone rates when using coal
+            /<command> Uses - If AutoStone with coal is activated, show remaining stone uses
             /<command> Reload - Reloads AutoStone configuration from disk
             /<command> Set [CoalUsed|StoneGiven] <Amount> - Changes AutoStone configuration to <Amount>
             /<command> Save - Saves AutoStone configuration to disk 
@@ -40,7 +41,7 @@ permissions:
        autostone.place.coal: true
    autostone.place.free:
      description: Allows you to place free AutoStone blocks
-     default: false
+     default: op
      children:
        autostone.place.coal: true
    autostone.place.coal:

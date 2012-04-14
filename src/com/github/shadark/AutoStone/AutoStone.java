@@ -12,6 +12,7 @@ public class AutoStone extends JavaPlugin {
 	
 	private Map<Player, Boolean> pluginEnabled = new HashMap<Player, Boolean>(); //True if Enabled, False if Disabled
 	private Map<Player, Integer> typePlugin = new HashMap<Player, Integer>(); //0 if Free, 1 if Coal
+	private AutoStoneListener listener;
 	private int coalUsed;
 	private int stoneGiven;
 	
@@ -27,8 +28,9 @@ public class AutoStone extends JavaPlugin {
 		PluginManager pm = this.getServer().getPluginManager();
 		AutoStoneCommandExecutor executor = new AutoStoneCommandExecutor(this);
 		getCommand("autostone").setExecutor(executor);
+		listener = new AutoStoneListener(this);
 		log.info("Plugin AutoStone enabled.");
-		pm.registerEvents(new AutoStoneListener(this), this);
+		pm.registerEvents(listener, this);
 	}
 	 
 	public void onDisable() { 
@@ -68,5 +70,9 @@ public class AutoStone extends JavaPlugin {
 	
 	public void setStoneGiven(int stone) {
 		stoneGiven = stone;
+	}
+	
+	public AutoStoneListener getListener() {
+		return listener;
 	}
 }
